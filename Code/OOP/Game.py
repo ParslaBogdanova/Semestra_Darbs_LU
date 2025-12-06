@@ -14,11 +14,8 @@ class Game():
             self.circle.spawn()
             if self.miss_count >= self.max_misses:
                 self.game_over = True
-                print("Game over")
 
     def restart(self):
         self.miss_count = 0
         self.game_over = False
-        self.circle.spawn()
-        self.circle.shrink_speed = 10
-        self.circle.hit_count = 0
+        self.circle.__init__()
