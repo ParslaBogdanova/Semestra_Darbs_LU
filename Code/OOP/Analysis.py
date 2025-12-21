@@ -31,24 +31,30 @@ class Analysis():
             x_d, y_d = self.gauss_line(self.distances)
             x_t, y_t = self.gauss_line(self.times)
 
-            plt.figure(figsize=(12, 4))
+            plt.figure(figsize=(12, 8))
 
-            plt.subplot(1, 2, 1)
+            plt.subplot(2, 2, 1)
             plt.title("Attālums no apļa centra")
             plt.xlabel("Attālums(px)")
-            plt.ylabel("Biežums")
+            plt.ylabel("Relatīvais blīvums")
             plt.hist(self.distances, bins=25,
                      density=True, alpha=0.6, edgecolor="black", color="#c0a0db")
             plt.plot(x_d, y_d, 'r', linewidth=2)
 
-            plt.subplot(1, 2, 2)
+            plt.subplot(2, 2, 2)
             plt.title("Reakcijas laiks")
             plt.xlabel("Reakcijas laiks(ms)")
-            plt.ylabel("Attālums(px)")
+            plt.ylabel("Relatīvais blīvums")
             plt.hist(self.times, bins=25, density=True,
                      alpha=0.6, edgecolor="black", color="#a0d1db")
             plt.plot(x_t, y_t, 'r', linewidth=2)
-            plt.grid(True)
+
+            plt.subplot(2, 1, 2)
+            plt.scatter(self.times, self.distances, c="#a1f29b",
+                        alpha=0.6, edgecolor="black")
+            plt.title("Reakcijas laiks pret attālumu no centra")
+            plt.xlabel("Reakcijas laiks(ms)")
+            plt.ylabel("Attālums(ms)")
 
             plt.tight_layout()
             pdf.savefig()
