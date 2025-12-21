@@ -37,7 +37,7 @@ class Circle():
 
     def is_clicked(self, mouse_pos, update_spawn=True):
         distance = math.hypot(mouse_pos[0]-self.x, mouse_pos[1]-self.y)
-        # math/hypot(x, y) ir tas pats, kas math.sqrt(x**2+y**2)
+        # math.hypot(x, y) ir tas pats, kas math.sqrt(x**2+y**2)
 
         if distance <= self.radius:
             self.clicked = True
