@@ -36,15 +36,15 @@ class Analysis():
             plt.subplot(2, 2, 1)
             plt.title("Attālums no apļa centra")
             plt.xlabel("Attālums(px)")
-            plt.ylabel("Relatīvais blīvums")
-            plt.hist(self.distances, bins=25,
-                     density=True, alpha=0.6, edgecolor="black", color="#c0a0db")
+            plt.ylabel("???")
+            plt.hist(self.distances, density=True, bins=25, alpha=0.6,
+                     edgecolor="black", color="#c0a0db")
             plt.plot(x_d, y_d, 'r', linewidth=2)
 
             plt.subplot(2, 2, 2)
             plt.title("Reakcijas laiks")
             plt.xlabel("Reakcijas laiks(ms)")
-            plt.ylabel("Relatīvais blīvums")
+            plt.ylabel("???")
             plt.hist(self.times, bins=25, density=True,
                      alpha=0.6, edgecolor="black", color="#a0d1db")
             plt.plot(x_t, y_t, 'r', linewidth=2)
