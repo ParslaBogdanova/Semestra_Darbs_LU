@@ -59,11 +59,20 @@ while running:
             center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 - 30))
         display_surface.blit(text, text_rect)
 
-        text_R = font2.render(
-            "Press 'r' to download your analysis results as .pdf", True, (133, 197, 232))
-        text_R_rect = text_R.get_rect(
-            center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 + 30))
-        display_surface.blit(text_R, text_R_rect)
+        pdf_button = pygame.Rect(WINDOW_WIDTH//2 - 70,
+                                 WINDOW_HEIGHT//2 + 20, 140, 50)
+        pygame.draw.rect(display_surface, (133, 197, 232),
+                         pdf_button)
+
+        font_btn = pygame.font.SysFont(None, 30)
+        text_surf = font_btn.render("Load PDF", True, (255, 255, 255))
+        text_rect = text_surf.get_rect(center=pdf_button.center)
+        display_surface.blit(text_surf, text_rect)
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = pygame.mouse.get_pos()
+            if pdf_button.collidepoint(mouse_pos):
+                analysis.show_results()
 
     pygame.display.update()
 
